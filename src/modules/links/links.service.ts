@@ -54,7 +54,10 @@ export class LinksService {
         throw new InternalServerErrorException('Failed to create short link');
       }
 
-      return newLink;
+      return {
+        newLink,
+        message: "Short Link created successfully."
+      };
     } catch (error: any) {
       throw new InternalServerErrorException(
         error?.message || 'Error creating short link',
